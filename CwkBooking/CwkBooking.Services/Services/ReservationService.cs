@@ -43,7 +43,7 @@ namespace CwkBooking.Services.Services
             var roomBusyFrom = room.BusyFrom == null ? default(DateTime): room.BusyFrom;
             var roomBusyTo = room.BusyTo == null ? default(DateTime) : room.BusyTo;
             var isBusy = reservation.CheckInDate >= roomBusyFrom
-                || reservation.CheckInDate <= roomBusyTo;
+                && reservation.CheckInDate <= roomBusyTo;
 
             if (isBusy)
                 return null;
